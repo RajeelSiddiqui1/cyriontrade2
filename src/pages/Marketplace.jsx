@@ -6,9 +6,23 @@ import { MarketplaceHero } from "@/components/marketplace/MarketplaceHero";
 import { MarketplaceSidebar } from "@/components/marketplace/MarketplaceSidebar";
 import { MarketplaceCard } from "@/components/marketplace/MarketplaceCard";
 import { MARKETPLACE_ITEMS } from "@/data/marketplace/marketplaceData";
+import { LoginModal } from "@/components/Modal/LoginModal";
+import { SignupModal } from "@/components/Modal/SignupModal";
 
 const Marketplace = () => {
   const [activeCategory, setActiveCategory] = useState("Strategies");
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
+
+  const openLogin = () => {
+    setIsLoginOpen(true);
+    setIsSignupOpen(false);
+  };
+
+  const openSignup = () => {
+    setIsSignupOpen(true);
+    setIsLoginOpen(false);
+  };
 
   const items = useMemo(() => {
     return MARKETPLACE_ITEMS[activeCategory] || [];
@@ -72,7 +86,10 @@ const Marketplace = () => {
           <p className="text-primary-foreground/80 text-lg md:text-xl font-bold mb-12 max-w-2xl mx-auto">
             Free to use — no credit card required. <br /> Experience institutional tools today.
           </p>
-          <button className="bg-foreground text-background px-14 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:scale-105 transition-transform shadow-2xl">
+          <button 
+            onClick={openLogin}
+            className="bg-foreground text-background px-14 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:scale-105 transition-transform shadow-2xl"
+          >
             Start Now
           </button>
         </motion.div>
@@ -81,6 +98,17 @@ const Marketplace = () => {
 
 
       <SiteFooter />
+
+      <LoginModal 
+        isOpen={isLoginOpen} 
+        onClose={() => setIsLoginOpen(false)} 
+        onSwitchToSignup={openSignup} 
+      />
+      <SignupModal 
+        isOpen={isSignupOpen} 
+        onClose={() => setIsSignupOpen(false)} 
+        onSwitchToLogin={openLogin} 
+      />
     </main>
   );
 };

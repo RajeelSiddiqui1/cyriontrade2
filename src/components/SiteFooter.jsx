@@ -4,8 +4,11 @@ import { Logo } from "@/components/ui/Logo";
 export const SiteFooter = () => (
   <footer className="border-t border-border/60 py-14">
     <div className="container max-w-7xl mx-auto px-4">
-      <div className="grid md:grid-cols-4 gap-10">
-        <div className="md:col-span-2">
+      {/* md:grid-cols-3 set kar diya hai */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        
+        {/* Column 1: Logo & Info */}
+        <div className="flex flex-col items-start">
           <Link to="/" className="flex flex-col items-start gap-2.5">
             <Logo />
           </Link>
@@ -14,26 +17,21 @@ export const SiteFooter = () => (
           </p>
         </div>
 
+        {/* Column 2 & 3: Links (Map function se 2 sets nikal rahe hain) */}
         {[
           {
             title: "Explore",
             links: [
               ["Home", "/"],
               ["Marketplace", "/marketplace"],
-              ["Trading Strategies", "/marketplace"],
-            ],
-          },
-          {
-            title: "Services",
-            links: [
               ["Signals", "/marketplace"],
               ["Copy Bots", "/marketplace"],
-              ["Pricing", "/pricing"],
             ],
           },
           {
             title: "Company",
             links: [
+              ["Pricing", "/pricing"],
               ["About CyrionTrade", "/about"],
               ["Contact Us", "/contact"],
               ["Terms of Service", "/terms"],

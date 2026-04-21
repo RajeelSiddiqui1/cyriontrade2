@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import { Logo } from "@/components/ui/Logo";
 
 export const SiteFooter = () => (
-  <footer className="border-t border-border/60 py-14">
+  <footer className="border-t border-border/60 py-14 bg-background">
     <div className="container max-w-7xl mx-auto px-4">
-      {/* md:grid-cols-3 set kar diya hai */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         
         {/* Column 1: Logo & Info */}
         <div className="flex flex-col items-start">
@@ -17,21 +16,27 @@ export const SiteFooter = () => (
           </p>
         </div>
 
-        {/* Column 2 & 3: Links (Map function se 2 sets nikal rahe hain) */}
+        {/* Link Columns */}
         {[
           {
             title: "Explore",
             links: [
               ["Home", "/"],
               ["Marketplace", "/marketplace"],
+              ["Trading Strategies", "/marketplace"],
+            ],
+          },
+          {
+            title: "Services",
+            links: [
               ["Signals", "/marketplace"],
               ["Copy Bots", "/marketplace"],
+              ["Pricing", "/pricing"],
             ],
           },
           {
             title: "Company",
             links: [
-              ["Pricing", "/pricing"],
               ["About CyrionTrade", "/about"],
               ["Contact Us", "/contact"],
               ["Terms of Service", "/terms"],
@@ -39,11 +44,11 @@ export const SiteFooter = () => (
           },
         ].map((col) => (
           <div key={col.title}>
-            <div className="text-sm font-semibold mb-4">{col.title}</div>
-            <ul className="space-y-2.5">
+            <div className="text-sm font-semibold text-foreground mb-6">{col.title}</div>
+            <ul className="space-y-3">
               {col.links.map(([label, href]) => (
                 <li key={label}>
-                  <Link to={href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link to={href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {label}
                   </Link>
                 </li>

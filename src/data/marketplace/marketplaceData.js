@@ -104,8 +104,8 @@ export const MARKETPLACE_ITEMS = {
       price: "$99.99", 
       badge: "HIGH WIN RATE", 
       
-      image: "/template/Bull-Rider.png",
-      banner: "/template/Bull-Rider.png",
+      image: "/template/Bull-Rider2.png",
+      banner: "/template/Bull-Rider2.png",
       rating: 5,
       reviews: 8
     },
@@ -115,8 +115,8 @@ export const MARKETPLACE_ITEMS = {
       price: "$99.99", 
       badge: null, 
      
-      image: "/template/Bull-Rider2.png",
-      banner: "/template/Bull-Rider2.png",
+      image: "/template/Bull-Rider.png",
+      banner: "/template/Bull-Rider.png",
       rating: 4, 
       reviews: 5 
     },
